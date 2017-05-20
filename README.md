@@ -1,12 +1,12 @@
-# WorseYouTube
+# WorseYouTube (for JHA)
 
-> A worse YouTube.
+A project for JHA.
 
 ## Information
 
-I used the vue project generator (vue-cli). What's mine is everything within the `src/` and `test/` folders. The reason I used a generator, rather than set everything up from scratch, is since this is a UI position I figured I didn't want to spend a lot of time on getting a build chain setup for vue files and what not. The generator gave me all that, plus a very simple web server, which really sped things up for me!
+I used the vue project generator (vue-cli). What's mine is everything within the `src/` and `test/` folders. I also added a few node packages (jade for jade templates, less instead of sass, and moment for fancy time formatting). The reason I used a generator, rather than set everything up from scratch, is since this is a UI position I figured I didn't want to spend a lot of time on getting a build chain setup for vue files and what not. The generator gave me all that, plus a very simple web server, which really sped things up for me!
 
-A link for the generator is at the end of this README :)
+[Here's a link](http://vuejs-templates.github.io/webpack/) to the vue-cli generator that I used :)
 
 ## TODO
 
