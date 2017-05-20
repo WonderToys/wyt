@@ -109,6 +109,8 @@ export default {
     }
   },
   mounted() {
+    $('#favoritesToggle').sideNav('hide');
+
     this.$store.dispatch('getSingleVideo', { 
       id: this.$route.params.videoId,
       maxWidth: $('nav .container').width()

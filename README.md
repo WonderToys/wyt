@@ -11,6 +11,7 @@ I used the vue project generator (vue-cli). What's mine is everything within the
 ## TODO
 
 - Write tests
+- Possibly move favorites out of localStorage to Firebase or something. If so, need to add auth.
 
 ## Build Setup
 

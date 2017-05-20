@@ -4,6 +4,7 @@
 <template lang="jade">
 div#app
   app-navigation
+  favorites
 
   div#mainContent
     router-view
@@ -14,11 +15,13 @@ div#app
 -->
 <script>
 import AppNavigation from './components/AppNavigation.vue';
+import Favorites from './components/Favorites.vue';
 
 export default {
   name: 'app',
   components: {
-    AppNavigation
+    AppNavigation,
+    Favorites
   }
 }
 </script>

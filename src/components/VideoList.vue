@@ -20,8 +20,12 @@ div
 
   div.row
     div.col.s6.m3(v-for="video in videos")
-      div.card(@click="goVideo(video.id.videoId || video.id)")
-        div.card-image
+      div.card
+        a.favorite-btn.btn.white.waves-effect.waves-green(@click="toggleFavorite(video)")
+          i.material-icons(v-if="isFavorited(video)") favorite
+          i.material-icons(v-else) favorite_border
+
+        div.card-image(@click="goVideo(video.id.videoId || video.id)")
           img.responsive-img(:src="video.thumbnails.high.url")
           span.card-title {{ video.title }}
 </template>
@@ -32,6 +36,16 @@ div
 <style scoped lang="less">
 div.card {
   cursor: pointer;
+
+  .favorite-btn {
+    position: absolute;
+    right: 10px;
+    top: 10px;
+
+    > i {
+      color: rgba(0, 0, 0, 0.87);
+    }
+  }
 
   span.card-title {
     background-color: rgba(0, 0, 0, 0.6);
@@ -70,7 +84,8 @@ import * as types from '../store/types';
 export default {
   computed: {
     ...mapGetters({
-      videos: 'list'
+      videos: 'list',
+      favorites: 'favorites'
     }),
     query: {
       get() { return this.$store.state.videoList.searchQuery; },
@@ -106,6 +121,24 @@ export default {
         name: 'video',
         params: { videoId }
       });
+    },
+    isFavorited(video) {
+      return this.favorites.some(f => f.id === (video.id.videoId || video.id));
+    },
+    toggleFavorite(video) {
+      if ( this.isFavorited(video) ) {
+        // Remove favorite
+        this.$store.dispatch('removeFavorite', video.id.videoId || video.id);
+        return;
+      }
+
+      // Add favorite
+      const fav = {
+        id: video.id.videoId || video.id,
+        thumb: video.thumbnails.high.url,
+        title: video.title
+      };
+      this.$store.dispatch('addFavorite', fav);
     }
   },
   mounted() {

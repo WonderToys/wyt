@@ -9,6 +9,11 @@ div.navbar-fixed
         a.brand-logo(href="/")
           i.material-icons ondemand_video
           | WYT
+        ul.right
+          li
+            a#favoritesToggle.button-collapse.show-on-large(href="javascript:void(0);", data-activates="favorites")
+              i.material-icons.left favorite
+              | Favorites
 </template>
 
 <!--
@@ -25,6 +30,10 @@ nav .container {
 -->
 <script>
 export default {
-  
+  mounted() {
+    $('#favoritesToggle').sideNav({
+      edge: 'right'
+    });
+  } 
 }
 </script>
