@@ -1,6 +1,4 @@
-# WorseYouTube (for JHA)
-
-A project for JHA.
+# WorseYouTube
 
 ## Information
 
